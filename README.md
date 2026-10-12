@@ -19,6 +19,10 @@ be adjusted in `tower.py` once known.
 
 ## Watch in a browser
 
+Watch the [26-second simulation video](media/brainrot-demo.mp4). On GitHub,
+select **View raw** or **Download raw file** if it does not play inline.
+
+
 Download `viewer.html` from GitHub (open the file, then select **Download raw file**)
 and open the downloaded file in your browser. Click **Play** to watch a recorded
 simulation with floor positions, cash, upgrades, and deliveries. No terminal or
