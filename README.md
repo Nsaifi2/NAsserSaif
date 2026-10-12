@@ -17,6 +17,63 @@ and equally likely Ascended/Forbidden spawns on the top floor. There are no live
 events, multiplayer, continuous physics, or passive cash income. Exact rules can
 be adjusted in `tower.py` once known.
 
+## Play the 3D game
+
+Open [`gameplay3d.html`](gameplay3d.html) on GitHub, click **Download raw file**,
+and open the downloaded file in Chrome, Edge, Firefox, or Safari. It is a single
+self-contained file with an embedded Three.js renderer; no server, network,
+account, or package installation is needed. Your browser needs WebGL enabled.
+GitHub's code view does not execute HTML.
+
+Click **Watch bot** for live 3D gameplay or **Take control** to play manually.
+The bot funds jump upgrades with Common pickups, climbs the colored course,
+collects Ascended and Forbidden only on the top floor with maximum jump power,
+and brings them back to base. Bot speed is adjustable (1×/2×/4×).
+
+- **WASD / arrows**: move relative to the camera.
+- **Space**: jump. **E**: collect a nearby brainrot.
+- **U**: buy a jump upgrade while standing at the glowing bank pad.
+- **Mouse/touch drag**: orbit camera. **Mouse wheel**: zoom.
+- Use **Overview**, **Pause**, **Restart**, and the on-screen movement controls.
+- **Halloween look** toggles a decorative purple sky and pumpkins.
+
+Walk back down to the glowing base to bank your carried brainrot. Spiked-log
+contact sends you back to base and loses carried loot. Collection counts update
+only when banked. Rares require arrival on the top floor and jump power 5.
+
+The third-person character, environment, and creatures are original procedural
+models. The color tiers, tiled walls, blue portals, trees, logs, and rainbow
+are informed by the actual published island lobby image. The Halloween option
+is informed by its promotional thumbnail. [Research notes and sources](RESEARCH.md)
+distinguish images inspected from videos whose playback was blocked. Exact
+map dimensions, prices, models, and physics remain illustrative.
+
+![3D game overview](media/gameplay3d.png)
+
+### Develop and verify 3D
+
+Sources: `src3d/shell.html` and `src3d/game.js`. Rebuild the offline file using:
+
+```sh
+python3 scripts/build_3d.py
+```
+
+The embedded engine is Three.js **0.160.1**, verified against the official npm
+package's SHA-512 integrity field. Its MIT license is in
+`vendor/THREE-LICENSE.txt`. No dependencies are downloaded during rebuild or play.
+
+With Playwright for Python and Chromium installed, run:
+
+```sh
+python3 scripts/check_3d.py
+```
+
+The checks use real Chromium WebGL, actual movement/physics, automated completion,
+manual collection/banking/upgrading, pause, top-floor rarity gating, obstacle
+loss, camera controls, a theme switch, and mobile layout. Screenshots go into
+ignored `artifacts/`. Headless testing uses Chromium's software WebGL renderer;
+this does not measure performance on the player's own graphics hardware.
+
 ## Play the browser game
 
 Open [`gameplay.html`](gameplay.html) on GitHub, choose **Download raw file**,
