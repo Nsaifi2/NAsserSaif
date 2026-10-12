@@ -17,17 +17,40 @@ and equally likely Ascended/Forbidden spawns on the top floor. There are no live
 events, multiplayer, continuous physics, or passive cash income. Exact rules can
 be adjusted in `tower.py` once known.
 
-## Watch in a browser
+## Play the browser game
 
-Watch the [26-second simulation video](media/brainrot-demo.mp4). On GitHub,
-select **View raw** or **Download raw file** if it does not play inline.
+Open [`gameplay.html`](gameplay.html) on GitHub, choose **Download raw file**,
+and open the downloaded file in Chrome, Edge, Firefox, or Safari. No terminal,
+server, or package installation is required. GitHub's code view itself does not
+execute the game. This is a live playable game, not a recorded animation.
 
+Click **Watch bot** for live automated gameplay or use **Take control** to play.
+Controls: A/D or arrows to move, Space to jump, E to collect, U to buy a jump
+upgrade at base, and S/down arrow to drop through platforms. On-screen buttons
+also support touch controls. Pause and Restart are available.
 
-Download `viewer.html` from GitHub (open the file, then select **Download raw file**)
-and open the downloaded file in your browser. Click **Play** to watch a recorded
-simulation with floor positions, cash, upgrades, and deliveries. No terminal or
-server is needed. The viewer replays the seeded simulation; it does not run the
-Python policy interactively.
+The browser game has continuous gravity, one-way platforms, moving obstacles,
+a scrolling camera, carrying and banking, and cash-funded jump upgrades. It
+requires maximum jump power and arrival on the top floor for rare pickups.
+The bot buys upgrades using Common collections, then banks one Ascended and one
+Forbidden. Rebirth, brainrot leveling, and live events are not included in this
+browser version. The Python economy prototype below has additional manual
+progression options. Neither version measures actual Fortnite physics.
+
+![Playable game screenshot](media/gameplay.png)
+
+### Optional developer browser checks
+
+With Playwright for Python and Chromium available, run
+`python3 scripts/check_gameplay.py`. It validates the real game's physics and
+manual controls, automatic completion, rare gating, and obstacle loss in headless
+Chromium. These tools are only needed for developer testing, not to play.
+
+### Earlier recordings
+
+[`viewer.html`](viewer.html) is an older recorded replay rather than interactive
+physics gameplay. [Video](media/brainrot-demo.mp4) also shows that older replay.
+Use `gameplay.html` for the playable game.
 
 ## Run
 
